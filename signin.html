@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BrightClass — Sign In</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --brand-1: #ffb703;
+      --brand-2: #023047;
+      --accent: #8ecae6;
+      --muted: #f3f6f9;
+      --card: #ffffff;
+      --radius: 14px;
+      font-family: "Nunito","Roboto",sans-serif;
+    }
+    *{box-sizing:border-box;}
+    body{margin:0;background:linear-gradient(180deg,var(--muted),#fff);color:var(--brand-2);display:flex;justify-content:center;align-items:center;min-height:100vh;}
+    .signin-card{background:var(--card);padding:36px 28px;border-radius:var(--radius);box-shadow:0 10px 30px rgba(2,48,71,0.08);width:100%;max-width:400px;text-align:center;animation:fadeUp 0.6s ease forwards;}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+    .logo-mark{width:60px;height:60px;border-radius:12px;background:linear-gradient(135deg,var(--brand-1),var(--accent));display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:24px;margin:0 auto 12px;}
+    h2{margin-bottom:24px;}
+    .input-group{display:flex;flex-direction:column;margin-bottom:18px;text-align:left;}
+    .input-group label{font-weight:600;margin-bottom:6px;}
+    .input-group input{padding:12px 14px;border-radius:10px;border:2px solid #e6eef2;font-size:16px;outline:none;transition:border 0.3s ease;}
+    .input-group input:focus{border-color:var(--brand-1);}
+    .btn{background:var(--brand-2);color:white;padding:12px;border-radius:10px;border:none;font-weight:700;cursor:pointer;width:100%;transition:background 0.3s ease;}
+    .btn:hover{background:var(--brand-1);color:var(--brand-2);}
+    .footer-text{margin-top:16px;font-size:14px;}
+    .footer-text a{color:var(--brand-2);font-weight:600;text-decoration:none;}
+    .footer-text a:hover{color:var(--brand-1);}
+  </style>
+</head>
+<body>
+  <div class="signin-card">
+    <div class="logo-mark">B</div>
+    <h2>Sign In</h2>
+    <form id="signinForm">
+      <div class="input-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Enter your email" required />
+      </div>
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter your password" required />
+      </div>
+      <button type="submit" class="btn">Sign In</button>
+    </form>
+    <div class="footer-text">
+      Don't have an account? <a href="#">Sign Up</a>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("signinForm").addEventListener("submit", function(e){
+      e.preventDefault();
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      // Simple demo authentication
+      // You can store multiple users in localStorage if needed
+      const demoEmail = "user@example.com";
+      const demoPassword = "123456";
+
+      if(email === demoEmail && password === demoPassword){
+        alert("Sign In Successful!");
+        window.location.href = "index.html";
+      } else {
+        alert("Invalid email or password.");
+      }
+    });
+  </script>
+</body>
+</html>
