@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kids Zone - BrightClass</title>
+
+  <!-- Google Fonts: Nunito + Roboto -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <style>
+    :root {
+      --brand-1: #ffb703;
+      --brand-2: #023047;
+      --accent: #8ecae6;
+      --muted: #f3f6f9;
+      --card: #ffffff;
+      --radius: 14px;
+      font-family: "Nunito", "Roboto", sans-serif;
+    }
+
+    body {
+      margin: 0;
+      font-family: inherit;
+      background: linear-gradient(180deg, var(--muted), #fff);
+      color: var(--brand-2);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: #ffffffd9;
+      backdrop-filter: blur(6px);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 8px rgb(2 48 71 / 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      cursor: default;
+      user-select: none;
+    }
+
+    .logo-mark {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, var(--brand-1), var(--accent));
+      color: white;
+      font-weight: 800;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    nav a {
+      color: var(--brand-2);
+      font-weight: 600;
+      margin-left: 1.5rem;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--brand-1);
+    }
+
+    main.container {
+      flex-grow: 1;
+      padding: 3rem 2rem;
+    }
+
+    .page-title {
+      font-weight: 800;
+      font-size: 2.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      color: #6b7a81;
+      margin-bottom: 1.5rem;
+      font-weight: 500;
+    }
+
+    /* Tabs styling overrides */
+    .nav-tabs .nav-link {
+      font-weight: 700;
+      color: var(--brand-2);
+      border-radius: var(--radius) var(--radius) 0 0;
+      border-color: transparent transparent var(--brand-1) transparent;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .nav-tabs .nav-link.active {
+      background-color: var(--brand-1);
+      color: var(--brand-2);
+      border-color: transparent transparent var(--brand-1) transparent;
+    }
+
+    .nav-tabs .nav-link:hover {
+      color: var(--brand-1);
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .video-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: 0 4px 12px rgb(2 48 71 / 0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .badge-soft {
+      background: var(--muted);
+      color: var(--brand-2);
+      font-weight: 600;
+      padding: 0.25rem 0.75rem;
+      border-radius: 12px;
+      font-size: 0.85rem;
+    }
+
+    .video-title {
+      font-weight: 700;
+      color: var(--brand-2);
+      margin-left: 0.8rem;
+      font-size: 1rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .video-card > div:last-child {
+      display: flex;
+      align-items: center;
+      padding: 0.5rem 1rem;
+      gap: 0.6rem;
+      background: var(--muted);
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <div class="logo-mark">B</div>
+      <div>
+        <div style="font-weight: 800; font-size: 1.2rem;">BrightClass</div>
+        <div style="font-size: 0.8rem; color: #6b7a81;">Printable worksheets & activities</div>
+      </div>
+    </div>
+    
+  </header>
+
+  <main class="container">
+    <h1 class="page-title">Kids Zone</h1>
+    <p class="subtitle">Playful videos for Exercise, Alphabets, and Maths — one at a time 🔒🎬</p>
+
+    <div class="tabs-card">
+      <!-- Tabs -->
+      <ul class="nav nav-tabs" id="kidsTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="exercise-tab" data-bs-toggle="tab" data-bs-target="#exercise" type="button" role="tab"
+            aria-controls="exercise" aria-selected="true">🏃 Exercise</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="alphabet-tab" data-bs-toggle="tab" data-bs-target="#alphabet" type="button" role="tab"
+            aria-controls="alphabet" aria-selected="false">🔤 Alphabets Rhymes</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="maths-tab" data-bs-toggle="tab" data-bs-target="#maths" type="button" role="tab"
+            aria-controls="maths" aria-selected="false">🔢 Maths Rhymes</button>
+        </li>
+      </ul>
+
+      <!-- Tab content -->
+      <div class="tab-content mt-3" id="kidsTabsContent">
+        <!-- Exercise -->
+        <div class="tab-pane fade show active" id="exercise" role="tabpanel" aria-labelledby="exercise-tab">
+          <div class="video-grid">
+            <div class="video-card">
+              <div class="ratio ratio-16x9 yt-slot" data-video-id="d3LPrhI0v-w"></div>
+              <div>
+                <span class="badge-soft">Exercise</span>
+                <span class="video-title">PE With Joe – Kids Workout</span>
+              </div>
+            </div>
+            <div class="video-card">
+              <div class="ratio ratio-16x9 yt-slot" data-video-id="cbKkB3POqaY"></div>
+              <div>
+                <span class="badge-soft">Exercise</span>
+                <span class="video-title">GoNoodle – Shake Break</span>
+              </div>
+            </div>
+            <div class="video-card">
+              <div class="ratio ratio-16x9 yt-slot" data-video-id="U9Q6FKF12Qs"></div>
+              <div>
+                <span class="badge-soft">Exercise</span>
+                <span class="video-title">Kids Yoga – Cosmic Kids</span>
+              </div>
+            </div>
+            <div class="video-card">
+              <div class="ratio ratio-16x9 yt-slot" data-video-id="oc4QS2USKmk"></div>
+              <div>
+                <span class="badge-soft">Exercise</span>
+                <span class="video-title">10-Minute Movement</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Alphabet Rhymes -->
+        <div class="tab-pane fade" id="alphabet" role="tabpanel" aria-labelledby="alphabet-tab">
+          <div class="video-grid">
+            <div class="video-card">
+              <div class="ratio ratio-16x9 yt-slot" data-video-id="75p-N9YKqNo"></div>
+              <div>
+                <span class="badge-soft">ABC</span>
+                <span class="video-title">ABC Song – Super Simple</span>
+              </div>
+            </div>
+            <div class="video-card">
+              <div class="ratio ratio-16x9 yt-slot" data-video-id="36IBDpTRVNE"></div>
+              <div>
+                <span class="badge-soft">ABC</span>
+                <span class="video-title">Phonics A-Z</span>
+              </div>
+            </div>
+            <div class="video-card">
+              <div class="ratio ratio-16x9 yt-slot" data-video-id="hq3yfQnllfQ"></div>
+              <div>
+                <span class="badge-soft">ABC</span>
+                <span class="video-title">ABC Chant</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Maths Rhymes -->
+        <div class="tab-pane fade" id="maths" role="tabpanel" aria-labelledby="maths-tab">
+          <div class="video-grid">
+            <div class="video-card">
+              <div class="ratio ratio-16x9 yt-slot" data-video-id="DR-cfDsHCGA"></div>
+              <div>
+                <span class="badge-soft">Numbers</span>
+                <span class="video-title">Numbers Song 1-20</span>
+              </div>
+            </div>
+            <div class="video-card">
+              <div class="ratio ratio-16x9 yt-slot" data-video-id="6RfIKqkvHTY"></div>
+              <div>
+                <span class="badge-soft">Counting</span>
+                <span class="video-title">Count To 100</span>
+              </div>
+            </div>
+            <div class="video-card">
+              <div class="ratio ratio-16x9 yt-slot" data-video-id="7D4K9oi7oBM"></div>
+              <div>
+                <span class="badge-soft">Tables</span>
+                <span class="video-title">Multiplication 2s</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Bootstrap Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+
+  <!-- YouTube Iframe API + Custom JS -->
+  <script>
+    let ytPlayers = [];
+
+    function buildPlayers() {
+      const slots = document.querySelectorAll('.yt-slot');
+      slots.forEach((slot, idx) => {
+        const vid = slot.getAttribute('data-video-id');
+        const player = new YT.Player(slot, {
+          videoId: vid,
+          playerVars: {
+            rel: 0,
+            modestbranding: 1
+          },
+          events: {
+            onStateChange: (e) => {
+              if (e.data === YT.PlayerState.PLAYING) {
+                ytPlayers.forEach((p, i) => {
+                  if (p && i !== idx) {
+                    try {
+                      p.stopVideo();
+                    } catch (e) {}
+                  }
+                });
+              }
+            }
+          }
+        });
+        ytPlayers[idx] = player;
+      });
+    }
+
+    // Called by the Iframe API when ready
+    function onYouTubeIframeAPIReady() {
+      buildPlayers();
+    }
+
+    // Load the YouTube Iframe API
+    (function loadYT() {
+      const s = document.createElement('script');
+      s.src = "https://www.youtube.com/iframe_api";
+      document.body.appendChild(s);
+    })();
+
+    // Pause videos when switching tabs
+    document.addEventListener('shown.bs.tab', () => {
+      ytPlayers.forEach(p => {
+        try {
+          p.stopVideo();
+        } catch (e) {}
+      });
+    });
+  </script>
+
+  
+</body>
+
+</html>

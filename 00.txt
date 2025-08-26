@@ -1,0 +1,3 @@
+this is the main page of my project,just now dont give any response until i ask
+
+now i decide to maintain same css for every subjects with same format of my main page, so i will upload 1 by 1 , make the changes as per my main page
